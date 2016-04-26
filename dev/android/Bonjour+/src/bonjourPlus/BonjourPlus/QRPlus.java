@@ -7,7 +7,9 @@ import android.content.DialogInterface;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 
 public class QRPlus extends Activity {
 
@@ -17,7 +19,7 @@ public class QRPlus extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        this.scanQR();
+        this.scanQR(); // Scan du QR
     }
 
     //product qr code mode
@@ -60,15 +62,11 @@ public class QRPlus extends Activity {
         Log.e("test", String.valueOf(requestCode));
         if (requestCode == 0) {
             if (resultCode == RESULT_OK) {
-                //get the extras that are returned from the intent
                 String contents = intent.getStringExtra("SCAN_RESULT");
                 String format = intent.getStringExtra("SCAN_RESULT_FORMAT");
-                //Toast toast = Toast.makeText(this, "Content:" + contents + " Format:" + format, Toast.LENGTH_LONG);
-                //Log.v("test contenu", "contenu = " + contents);
-                url = contents;
-                //toast.show();
+                url = contents; // mis a jour de l'url vers laquelle la webview pointera
                 Intent webi = new Intent(QRPlus.this, WebPlus.class);
-                startActivity(webi);
+                startActivity(webi); // Start de l'activité contenant la webview (côté visiteur)
                 this.onDestroy();
             }
         }

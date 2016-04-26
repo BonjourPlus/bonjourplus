@@ -17,10 +17,10 @@ public class bonjourPlus extends Activity {
         setContentView(R.layout.main);
 
         VideoView vidView = (VideoView)findViewById(R.id.myVideo);
-        String vidAddress = "https://archive.org/download/ksnn_compilation_master_the_internet/ksnn_compilation_master_the_internet_512kb.mp4";
+        //String vidAddress = "https://archive.org/download/ksnn_compilation_master_the_internet/ksnn_compilation_master_the_internet_512kb.mp4";
         //String vidAddress = "http://172.30.136.82:8081";
         //String vidAddress = "http://192.168.0.101:8080/flash.html";
-        //String vidAddress = "http://172.30.136.97:8081/";
+        String vidAddress = "http://172.30.136.106:8012/";
         Uri vidUri = Uri.parse(vidAddress);
         vidView.setVideoURI(vidUri);
 

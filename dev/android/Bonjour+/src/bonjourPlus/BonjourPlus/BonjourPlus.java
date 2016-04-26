@@ -15,17 +15,17 @@ public class BonjourPlus extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.main);
-
+        setContentView(R.layout.main); // Initiation de l'application : affichage du logo du produit
         final Handler handle = new Handler();
+        // Attente de 3sec avant de basculer sur le QR decoder
         Runnable delay = new Runnable() {
             public void run() {
 
                 Intent intent = new Intent(BonjourPlus.this, QRPlus.class);
                 startActivity(intent);
+                finish();
             }
         };
         handle.postDelayed(delay,3000);
-        this.onDestroy();
     }
 }

@@ -1,12 +1,17 @@
 package bonjourPlus.BonjourPlus;
 
 import android.app.Activity;
+import android.content.Intent;
 import android.net.http.SslError;
 import android.os.Bundle;
+import android.os.Handler;
 import android.util.Log;
+import android.view.View;
 import android.webkit.SslErrorHandler;
+import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.webkit.WebViewClient;
+import android.widget.Button;
 
 /**
  * Created by amaddah on 24/04/16.
@@ -16,11 +21,14 @@ public class WebPlus extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.webplus);
+
         WebView myWebView = (WebView) findViewById(R.id.webView);
-        myWebView.setWebViewClient(new SSLPlus());
-        myWebView.loadUrl(QRPlus.url);
-        //Log.e("",QRPlus.url);
-        this.onDestroy();
+        WebSettings settings = myWebView.getSettings();
+
+        myWebView.setWebViewClient(new SSLPlus()); // Webview supportant le HTTPS
+        settings.setJavaScriptEnabled(true); // Activation du Javascript
+
+        myWebView.loadUrl(QRPlus.url); // Affichage de l'url lu sur le QR Code
     }
 
     private class SSLPlus extends WebViewClient {
@@ -34,7 +42,6 @@ public class WebPlus extends Activity {
         @Override
         public void onReceivedSslError(WebView view, SslErrorHandler handler,
                                        SslError error) {
-            //super.onReceivedSslError(view, handler, error);
             handler.proceed();
         }
 

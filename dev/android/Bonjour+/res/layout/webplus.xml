@@ -4,9 +4,15 @@
               android:layout_width="fill_parent"
               android:layout_height="fill_parent"
               android:weightSum="1">
+
+    <Button
+            android:layout_width="138dp"
+            android:layout_height="71dp"
+            android:text="Actualiser"
+            android:id="@+id/button"/>
     <WebView
             android:layout_width="fill_parent"
             android:layout_height="fill_parent"
-            android:id="@+id/webView" android:layout_gravity="center_horizontal" android:layout_weight="1.06"/>
+            android:id="@+id/webView" android:layout_gravity="center_horizontal"/>
 </LinearLayout>
 
