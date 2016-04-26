@@ -18,20 +18,22 @@ public class StreamReader extends Activity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.habit);
-        Button button = (Button) findViewById(R.id.button);
+        Button button = (Button) findViewById(R.id.button); // Bouton pour éventuellement lire la vidéo intentionnellement
 
+        button.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                setContentView(R.layout.streamreader);
+                VideoView vidView = (VideoView)findViewById(R.id.myVideo);
+                String vidAddress = "http://push.bonjourplus.com"; // Adresse de lecture du flux streaming (coté Habitant)
+                Uri vidUri = Uri.parse(vidAddress);
+                vidView.setVideoURI(vidUri);
 
-        setContentView(R.layout.streamreader);
+                MediaController vidControl = new MediaController(StreamReader.this);
+                vidControl.setAnchorView(vidView);
+                vidView.setMediaController(vidControl);
 
-        VideoView vidView = (VideoView)findViewById(R.id.myVideo);
-        String vidAddress = "http://push.bonjourplus.com"; // Adresse de lecture du flux streaming (coté Habitant)
-        Uri vidUri = Uri.parse(vidAddress);
-        vidView.setVideoURI(vidUri);
-
-        MediaController vidControl = new MediaController(this);
-        vidControl.setAnchorView(vidView);
-
-        vidView.setMediaController(vidControl);
-        vidView.start();
+                vidView.start();
+            }
+        });
     }
 }
