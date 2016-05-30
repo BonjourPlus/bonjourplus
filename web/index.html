@@ -1,0 +1,113 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Bonjour+</title>
+    <link rel="shortcut icon" href="client/favion.ico">
+    <script src="http://code.jquery.com/jquery-1.5.min.js"></script>
+    <script src="https://cdn.socket.io/socket.io-1.4.5.js"></script>
+    <script type="text/javascript">
+        $(function() {
+            $(".price").animate({left: "243px"});
+        });
+    </script>
+    <style type="text/css">
+        @font-face {
+            font-family: Brandon Grotesque;
+            font-weight: bold;
+            src: url('Brandon_bld.otf');
+        }
+
+        body {
+            background-color: #f44336;
+            font-family: Brandon Grotesque, Helvetica;
+            font-weight: bold;
+        }
+
+        a {
+            color: black;
+            text-decoration: none;
+        }
+
+        .menu > div:hover, a:hover {
+            opacity: 0.7;
+        }
+
+        img, .menu, .menu > div {
+            display: inline-block;
+            vertical-align: top;
+        }
+
+        .menu > div {
+            font-size: 3em;
+            margin-left: 30px;
+            margin-top: 15px;
+            display: block;
+            cursor: pointer;
+            border: solid 2px #ffab40;
+            border-radius: 10px;
+            padding: 10px;
+        }
+
+        .logo {
+            margin: 52px 30px 0 0;
+        }
+
+        .container {
+            width: 740px;
+            margin:0 auto;
+        }
+
+        .images {
+            width: 288px;
+            margin: 30px auto 0;
+            position: relative;
+        }
+
+        .price {
+            position: absolute;
+            top: 0;
+            left: 2430px;
+            z-index: 1000;
+        }
+
+        @media screen and (max-width: 800px) {
+            .logo, .menu {
+                display: block;
+            }
+
+            .logo {
+                margin: 25px auto 30px;
+            }
+
+            .menu > div {
+                margin-left: 0;
+            }
+
+            .container {
+                width: 100%;
+            }
+        }
+    </style>
+  </head>
+  <body>
+
+    <div class="container">
+
+      <img class="logo" src="BonjourPlus.png" width="240" height="240" title="Bonjour +"/>
+
+      <div class="menu">
+        <div>Gamme B+</div>
+        <div>Les mises en pratique</div>
+        <div><a href="https://docs.google.com/forms/d/1OlFovLuAKJLndDjTQhdYKchfbnZTmbgBELbwGcOvK_k/viewform?c=0&w=1&usp=mail_form_link" target="_blank">Pr&eacute;-commandes</a></div>
+      </div>
+    </div>
+
+    <br/>
+
+    <div class="images">
+      <img src="proto.png" width="288" height="466" title="Interphone"/>
+      <img src="a_partir_de.png" width="180" height="179" title="A partir de 5&euro;" class="price"/>
+    </div>
+
+  </body>
+</html>
